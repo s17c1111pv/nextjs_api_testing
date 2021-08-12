@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ["blog-prj","localhost","127.0.0.1"]
+ALLOWED_HOSTS = ["blog-prj","localhost","127.0.0.1","nextjs-api-with-test.herokuapp.com"]
 
 
 # Application definition
