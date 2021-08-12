@@ -5,18 +5,18 @@ volumes:
   node_modules-store:
 
 services:
-  # blog-prj:
-  #   container_name: blog-prj
-  #   env_file: ./backend/blog_prj/.env
-  #   build: ./backend/.
-  #   volumes:
-  #     - ./backend/blog_prj:/code/
-  #   # - static_volume:/code/staticfiles # <-- bind the static volume
-  #   stdin_open: true
-  #   tty: true
-  #   ports:
-  #     - "8000:8000"
-  #   command: python manage.py runserver 0:8000
+  blog-prj:
+    container_name: blog-prj
+    env_file: ./backend/blog_prj/.env
+    build: ./backend/.
+    volumes:
+      - ./backend/blog_prj:/code/
+    # - static_volume:/code/staticfiles # <-- bind the static volume
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0:8000
 
   nextjs-blog:
     build: ./frontend/.
