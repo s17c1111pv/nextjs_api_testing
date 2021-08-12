@@ -1,0 +1,31 @@
+version: "3.7"
+
+volumes:
+  # static_volume:
+  node_modules-store:
+
+services:
+  # blog-prj:
+  #   container_name: blog-prj
+  #   env_file: ./backend/blog_prj/.env
+  #   build: ./backend/.
+  #   volumes:
+  #     - ./backend/blog_prj:/code/
+  #   # - static_volume:/code/staticfiles # <-- bind the static volume
+  #   stdin_open: true
+  #   tty: true
+  #   ports:
+  #     - "8000:8000"
+  #   command: python manage.py runserver 0:8000
+
+  nextjs-blog:
+    build: ./frontend/.
+    volumes:
+      # - /usr/src/app/node_modules
+      - ./frontend/nextjs_blog:/usr/src/app
+      - node_modules-store:/usr/src/app/node_modules
+    # command: sh -c "npm run build && npm start"
+    # command: sh -c "npm run dev"
+    command: sh -c "npm test"
+    ports:
+      - "3000:3000"
